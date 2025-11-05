@@ -99,16 +99,8 @@ export function AuthPage({ onAuth }: AuthPageProps) {
 
         <div className="mt-6 text-center text-green-300/40 text-xs space-y-2">
           <p>Only one team member can access the platform at a time</p>
-          <p>Your progress is saved locally</p>
           <div className="mt-4 pt-4 border-t border-green-500/20">
-            <p className="font-bold text-green-400 mb-2">REGISTERED TEAMS:</p>
-            <div className="space-y-1">
-              {teams.map((team) => (
-                <p key={team.id} className="text-green-300/60 text-xs">
-                  • {team.name} ({team.leaderName})
-                </p>
-              ))}
-            </div>
+            
           </div>
         </div>
       </div>
