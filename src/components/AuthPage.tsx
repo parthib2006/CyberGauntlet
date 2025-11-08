@@ -28,7 +28,7 @@ export function AuthPage({ onAuth }: AuthPageProps) {
         return;
       }
 
-      onAuth(team.id, team.name, team.leaderName);
+      onAuth(team.id, teamName.trim(), leaderName.trim());
       setLoading(false);
     }, 500);
   };
