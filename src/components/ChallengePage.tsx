@@ -24,7 +24,7 @@ interface Question {
   title: string;
   description: string;
   file_name: string;
-  file_content: string;
+  file_path: string;
   correct_flag: string;
   hints: string[];
 }
@@ -35,7 +35,7 @@ const SAMPLE_QUESTIONS: Question[] = [
     title: "SQL Injection Detection",
     description: "Identify the SQL injection vulnerability in the login form and extract the hidden flag.",
     file_name: "login_form.php",
-    file_content: "PD9waHAKJHVzZXJuYW1lID0gJF9HRVRbJ3VzZXJuYW1lJ107CiRwYXNzd29yZCA9ICRfR0VUWydwYXNzd29yZCddOwokY29ubmVjdGlvbiA9IG5ldyBQRE8oJ215c3FsOmhvc3Q9bG9jYWxob3N0JywgJ3Jvb3QnLCAnJyk7CiRxdWVyeSA9ICJTRUxFQ1QgKiBGUk9NIHR1c2VycyBXSEVSRSB1c2VybmFtZSA9ICckdXNlcm5hbWUnIEFORCBwYXNzd29yZCA9ICckcGFzc3dvcmQnIjsK",
+    file_path: "/challenges/q1/login_form.php",
     correct_flag: "CG{SQL_INJECT_FOUND}",
     hints: ["Look at the query construction", "No prepared statements used", "User input directly in query"]
   },
@@ -44,7 +44,7 @@ const SAMPLE_QUESTIONS: Question[] = [
     title: "XSS Vulnerability",
     description: "Find the Cross-Site Scripting vulnerability and retrieve the admin session cookie.",
     file_name: "comments.js",
-    file_content: "ZnVuY3Rpb24gcmVuZGVyQ29tbWVudChjb21tZW50KSB7CiAgY29uc3QgZGl2ID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnZGl2Jyk7CiAgZGl2LmlubmVySFRNTCA9IGNvbW1lbnQ7CiAgcmV0dXJuIGRpdjsKfQ==",
+    file_path: "/challenges/q2/comments.js",
     correct_flag: "CG{XSS_VULT_STORED}",
     hints: ["innerHTML is dangerous", "User input not sanitized", "Direct DOM manipulation"]
   },
@@ -53,7 +53,7 @@ const SAMPLE_QUESTIONS: Question[] = [
     title: "Authentication Bypass",
     description: "Analyze the authentication logic and find the bypass to access the admin panel.",
     file_name: "auth.py",
-    file_content: "ZGVmIGF1dGhlbnRpY2F0ZSh1c2VyLCBwYXNzKToKICAgIGlmIHVzZXIgPT0gImFkbWluIiBhbmQgcGFzcyA9PSAiYWRtaW4xMjMiOgogICAgICAgIHJldHVybiBUcnVlCiAgICBlbGlmIHVzZXIgPT0gIioiOgogICAgICAgIHJldHVybiBUcnVlCiAgICByZXR1cm4gRmFsc2U=",
+    file_path: "/challenges/q3/auth.py",
     correct_flag: "CG{WILDCARD_BYPASS}",
     hints: ["Check all conditions carefully", "Wildcard character found", "Logic error in auth"]
   }
@@ -212,8 +212,7 @@ export function ChallengePage({ teamId, teamName, leaderName, onLogout }: Challe
   const handleDownload = () => {
     if (!question) return;
     const element = document.createElement('a');
-    const file = new Blob([atob(question.file_content)], { type: 'text/plain' });
-    element.href = URL.createObjectURL(file);
+    element.href = question.file_path;
     element.download = question.file_name;
     document.body.appendChild(element);
     element.click();
