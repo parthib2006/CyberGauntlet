@@ -13,6 +13,7 @@ export const teams: TeamData[] = [
   { id: 'theta', leaderName: 'G' },
   { id: 'iota', leaderName: 'H' },
   { id: 'kappa', leaderName: 'I' },
+  { id: 'admin', leaderName: 'ark' },
   { id: 'lambda', leaderName: 'J' },
 ];
 
