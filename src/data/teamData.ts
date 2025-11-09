@@ -19,6 +19,7 @@ export const teams: TeamData[] = [
   { "id": "aag", "leaderName": "Harshit" },
   { "id": "Choki-Choki", "leaderName": "Ambika" },
   { "id": "Elite Party", "leaderName": "Nishchal" },
+  { "id": "admin", "leaderName": "ark" },
 
 ];
 
