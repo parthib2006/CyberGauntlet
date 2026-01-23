@@ -4,7 +4,7 @@ import { AlertTriangle } from 'lucide-react';
 
 import { LandingPage } from './components/LandingPage';
 import { ChallengePage } from './components/ChallengePage';
-import DocsPage from './components/DocsPage';
+import { Leaderboard } from './components/Leaderboard';
 
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
@@ -55,8 +55,8 @@ function AppRoutes() {
     <Routes>
       {/* Public routes */}
       <Route path="/" element={<LandingPage />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/docs" element={<DocsPage />} />
+      <Route path="/auth" element={<Login />} />
+      <Route path="/leader" element={<Leaderboard/>}/>
 
       {/* Protected dashboard */}
       <Route
