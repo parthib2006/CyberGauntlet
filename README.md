@@ -135,7 +135,22 @@ If you would like assistance adding challenges, integrating a scoreboard, or aut
 
 ## Contribution
 
-Read the files [CODE_OF_CONDUCT](Docs/CODE_OF_CONDUCT.md) and [Contributing](Docs/Contributor.md).
+Contributions are welcome and appreciated.
+
+Before contributing, please read the following documents to understand our guidelines and expectations:
+- [Code of Conduct](Docs/CODE_OF_CONDUCT.md)
+- [Contribution Guidelines](Docs/Contributor.md)
+
+To contribute:
+1. Fork the repository
+2. Create a new branch for your changes `git checkout <feature-branch>`
+3. Make your changes following the project standards `git add <FILE>`
+4. Commit and push your changes to your fork 
+`git commit -m "<commit-message>"`
+`git push origin <feature-branch>`
+5. Open a Pull Request for review
+
+By participating in this project, you agree to follow the Code of Conduct.
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
